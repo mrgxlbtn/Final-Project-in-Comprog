@@ -12,6 +12,8 @@ def home(request):
         address = str(form['address'].value())
         form_message = str(form['message'].value())
         message = 'from ' + recepient + '\n' + address +'\n' + form_message
+        if form.is_valid():
+            form.save()
         send_mail(
             subject, 
             message, 
