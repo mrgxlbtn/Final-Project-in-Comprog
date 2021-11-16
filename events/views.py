@@ -10,20 +10,22 @@ def home(request):
     if request.method == 'POST':
         form = ComplaintForm(request.POST)
         subject = str(form['subject'].value())
+        name = str(form['name'].value())
         recepient = str(form['email'].value())
         address = str(form['address'].value())
         form_message = str(form['message'].value())
-        message = 'from ' + recepient + '\n' + address +'\n' + form_message
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('?submitted=True')
+        message = 'Complainant: ' + name + '\n' + 'Address: ' + address + '\n' + form_message
         send_mail(
             subject, 
             message, 
-            recepient, 
-            [EMAIL_HOST_USER], 
+            EMAIL_HOST_USER, 
+            [recepient], 
             fail_silently = False
             )
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('?submitted=True')
+        
     else:
         form = ComplaintForm
         if 'submitted' in request.GET:
