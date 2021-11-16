@@ -16,7 +16,7 @@ def home(request):
         message = 'from ' + recepient + '\n' + address +'\n' + form_message
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/?submitted=True')
+            return HttpResponseRedirect('?submitted=True')
         send_mail(
             subject, 
             message, 

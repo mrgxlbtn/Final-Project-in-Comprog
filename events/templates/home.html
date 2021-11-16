@@ -22,12 +22,16 @@
       </div>
       <div class="complaint__container">
         {% if submitted %}
-        <h1 class="submitted__true">
+        <h1 class="complaint__title">
           Thank you!
         </h1>
         <p class="submitted__desc">
           We will reach you out as soon as possible.
         </p>
+
+        <button class="button button__return">
+          <a class="link__return" href="http://lgu-complaints.herokuapp.com">Send another compaint</a>
+        </button>
 
         {% else %}
 
@@ -38,7 +42,7 @@
 
           {{ form.as_p }}
 
-          <button>
+          <button class="button button__submit">
             Submit
           </button>
         </form>

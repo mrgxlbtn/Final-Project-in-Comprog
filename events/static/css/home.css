@@ -117,6 +117,12 @@ body {
   line-height: 1.2;
 }
 
+.submitted desc {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
 .form__container {
   margin-top: 1.5em;
 }
@@ -139,15 +145,28 @@ body {
   height: 218px;
 }
 
-button {
+.button {
   background-color: #0d4566;
   color: #ffffff;
-  width: 106px;
-  height: 36px;
   padding: 0;
   border: none;
   border-radius: 10px;
+}
+
+.button__return {
+  width: 200px;
+  height: 36px;
+}
+
+.button__submit {
+  width: 106px;
+  height: 36px;
   margin-left: 181px;
+}
+
+.link__return {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .image__container {
@@ -206,7 +225,7 @@ button {
     display: none;
   }
 
-  button {
+  .button__submit {
     margin-left: 329px;
   }
 }
