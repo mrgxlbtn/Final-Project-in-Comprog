@@ -26,9 +26,23 @@
           Thank you!
         </h1>
         <p class="submitted__desc">
-          We will reach you out as soon as possible.
+          We will reach you out as soon as possible. Below is the summary of your complaint.
         </p>
-
+        <p class="submitted__name">
+          Complainant: {{ submitData.name }}
+        </p>
+        <p class="submitted__email">
+          Subject of the Complaint: {{ submitData.email }}
+        </p>
+        <p class="submitted__address">
+          Subject of the Complaint: {{ submitData.address }}
+        </p>
+        <p class="submitted__subject">
+          Subject of the Complaint: {{ submitData.subject }}
+        </p>
+        <p class="submitted__message">
+          Subject of the Complaint: {{ submitData.message }}
+        </p>
         <button class="button button__return">
           <a class="link__return" href="http://lgu-complaints.herokuapp.com">Send another compaint</a>
         </button>
@@ -42,7 +56,7 @@
 
           {{ form.as_p }}
 
-          <button class="button button__submit">
+          <button name="submit" class="button button__submit">
             Submit
           </button>
         </form>

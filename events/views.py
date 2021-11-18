@@ -2,19 +2,21 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from community_website.settings import EMAIL_HOST_USER
+from .models import Complaint
 from .forms import ComplaintForm
 
 def home(request):
-    form = ComplaintForm()
     submitted = False
+    dataLength = Complaint.objects.count()
+    submitData = Complaint.objects.all()[dataLength - 1]
     if request.method == 'POST':
         form = ComplaintForm(request.POST)
-        subject = str(form['subject'].value())
-        name = str(form['name'].value())
-        recepient = str(form['email'].value())
-        address = str(form['address'].value())
-        form_message = str(form['message'].value())
-        message = 'Complainant: ' + name + '\n' + 'Address: ' + address + '\n' + form_message
+        subject = form['subject'].value()
+        name = form['name'].value()
+        recepient = form['email'].value()
+        address = form['address'].value()
+        form_message = form['message'].value()
+        message = 'We successfully received your complaint. We will reach you out as soon as possible. Below is the summary of your complaint.\n' + 'Complainant: ' + name + '\nAddress: ' + address + '\n' + form_message
         send_mail(
             subject, 
             message, 
@@ -30,8 +32,9 @@ def home(request):
         form = ComplaintForm
         if 'submitted' in request.GET:
             submitted= True
-
+    
     return render(request, 'home.html', {
         'form': form,
-        'submitted': submitted
-        })
+        'submitted': submitted,
+        'submitData': submitData,
+    })
