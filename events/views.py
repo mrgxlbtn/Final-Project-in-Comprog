@@ -7,7 +7,7 @@ from .forms import ComplaintForm
 
 def home(request):
     submitted = False
-    dataLength = Complaint.objects.count()
+    dataLength = Complaint.objects.count() 
     submitData = Complaint.objects.all()[dataLength - 1]
     if request.method == 'POST':
         form = ComplaintForm(request.POST)

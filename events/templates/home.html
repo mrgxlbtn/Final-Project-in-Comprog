@@ -21,6 +21,7 @@
           <img class="image-desktop" src="{% static 'assets/curiouspeople-desktop.png' %}" alt="curious people">
       </div>
       <div class="complaint__container">
+        {% csrf_token %}
         {% if submitted %}
         <h1 class="complaint__title">
           Thank you!
@@ -52,7 +53,6 @@
         <h1 class="complaint__title">Tell us what's on your mind!</h1>
         <p class="complaint__desc">Let's create a peaceful community. Every detaills matter!</p>
         <form class="form__container" action="" method="POST">
-          {% csrf_token %}
 
           {{ form.as_p }}
 
