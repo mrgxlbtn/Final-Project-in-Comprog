@@ -98,29 +98,43 @@ body {
   margin: 0 auto;
 }
 
-.complaint__container {
+.complaint__container,
+.submitted__container {
   max-width: calc(360px * 0.9);
   margin: 1em auto;
   margin-top: 2em;
 }
 
-.complaint__title {
+.complaint__title,
+.submitted__title {
   font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
 }
 
-.complaint__desc {
-  max-width: 250px;
+.complaint__desc,
+.submitted__desc {
   font-size: 15px;
   font-weight: 400;
   line-height: 1.2;
+  margin-bottom: 1em;
 }
 
-.submitted desc {
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.2;
+.complaint__desc {
+  max-width: 250px;
+}
+
+.submitted__desc {
+  max-width: 310px;
+}
+
+.submitted__info {
+  max-width: 512px;
+  margin-bottom: 0.5em;
+}
+
+.submitted__info > span {
+  font-weight: 700;
 }
 
 .form__container {
@@ -193,17 +207,20 @@ body {
     flex-direction: row-reverse;
   }
 
-  .complaint__container {
+  .complaint__container,
+  .submitted__container {
     max-width: 640px;
     margin-left: 4em;
   }
 
-  .complaint__title {
+  .complaint__title,
+  .submitted__title {
     margin-top: 1em;
     font-size: 30px;
   }
 
-  .complaint__desc {
+  .complaint__desc,
+  .submitted__desc {
     margin-top: 0.5em;
     font-size: 16px
   }

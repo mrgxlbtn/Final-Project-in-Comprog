@@ -17,53 +17,53 @@
     </nav>
     <section class="community__container">
       <div class="image__container">
-          <img class="image-mobile" src="{% static 'assets/curiouspeople-mobile.png' %}" alt="curious people">
-          <img class="image-desktop" src="{% static 'assets/curiouspeople-desktop.png' %}" alt="curious people">
+        <img
+          class="image-mobile"
+          src="{% static 'assets/curiouspeople-mobile.png' %}"
+          alt="curious people"
+        />
+        <img
+          class="image-desktop"
+          src="{% static 'assets/curiouspeople-desktop.png' %}"
+          alt="curious people"
+        />
       </div>
-      <div class="complaint__container">
-        {% if submitted %}
-        <h1 class="complaint__title">
-          Thank you!
-        </h1>
+      {% if submitted %}
+      <div class="submitted__container">
+        <h1 class="submitted__title">Thank you!</h1>
         <p class="submitted__desc">
-          We will reach you out as soon as possible. Below is the summary of your complaint.
+          We will reach you out as soon as possible. Below is the summary of
+          your complaint.
         </p>
-        <p class="submitted__name">
-          Complainant: {{ submitData.name }}
+        <p class="submitted__info"><span>Complainant: </span> {{ submitData.name }}</p>
+        <p class="submitted__info"><span>Email: </span>{{ submitData.email }}</p>
+        <p class="submitted__info"><span>Address: </span>{{ submitData.address }}</p>
+        <p class="submitted__info">
+          <span>Subject of the Complaint: </span>{{ submitData.subject }}
         </p>
-        <p class="submitted__email">
-          Subject of the Complaint: {{ submitData.email }}
-        </p>
-        <p class="submitted__address">
-          Subject of the Complaint: {{ submitData.address }}
-        </p>
-        <p class="submitted__subject">
-          Subject of the Complaint: {{ submitData.subject }}
-        </p>
-        <p class="submitted__message">
-          Subject of the Complaint: {{ submitData.message }}
-        </p>
+        <p class="submitted__info"><span>Message: </span>{{ submitData.message }}</p>
         <button class="button button__return">
-          <a class="link__return" href="http://lgu-complaints.herokuapp.com">Send another compaint</a>
+          <a class="link__return" href="http://lgu-complaints.herokuapp.com">
+            Send another compaint
+          </a>
         </button>
-
-        {% else %}
-
-        <h1 class="complaint__title">Tell us what's on your mind!</h1>
-        <p class="complaint__desc">Let's create a peaceful community. Every detaills matter!</p>
-        <form class="form__container" action="" method="POST">
-          {% csrf_token %}
-
-          {{ form.as_p }}
-
-          <button name="submit" class="button button__submit">
-            Submit
-          </button>
-        </form>
-
-        {% endif %}
-
       </div>
+
+      {% else %}
+
+      <div class="complaint__container">
+        <h1 class="complaint__title">Tell us what's on your mind!</h1>
+        <p class="complaint__desc">
+          Let's create a peaceful community. Every detaills matter!
+        </p>
+        <form class="form__container" action="" method="POST">
+          {% csrf_token %} {{ form.as_p }}
+
+          <button name="submit" class="button button__submit">Submit</button>
+        </form>
+      </div>
+
+      {% endif %}
     </section>
   </body>
 </html>
