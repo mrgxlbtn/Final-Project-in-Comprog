@@ -17,13 +17,13 @@ def home(request):
         address = form['address'].value()
         form_message = form['message'].value()
         message = 'We successfully received your complaint. We will reach you out as soon as possible. Below is the summary of your complaint.\n' + 'Complainant: ' + name + '\nAddress: ' + address + '\n' + form_message
-        #send_mail(
-        #    subject, 
-        #    message, 
-        #    EMAIL_HOST_USER, 
-        #    [recepient], 
-        #    fail_silently = False
-        #    )
+        send_mail(
+            subject, 
+            message, 
+            EMAIL_HOST_USER, 
+            [recepient, EMAIL_HOST_USER], 
+            fail_silently = False
+        )
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('?submitted=True')
