@@ -17,7 +17,7 @@ def home(request):
         address = form['address'].value()
         message = form['message'].value()
         admin_message = 'Complainant: ' + name + '\nAddress: ' + address + '\n' + message
-        user_message = 'We successfully received your complaint. We will reach you out as soon as possible. Below is the summary of your complaint.\n' + admin_message
+        user_message = 'We successfully received your complaint. We will reach you out as soon as possible. Below is the summary of your complaint.\n' + 'Complainant: ' + name + '\nAddress: ' + address + '\n' + message
         send_mail(
             subject, 
             admin_message, 
