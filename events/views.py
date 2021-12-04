@@ -20,8 +20,8 @@ def home(request):
         send_mail(
             subject, 
             message, 
-            'jonathanruedas.dev@gmail.com', 
-            ['ruedasjnthn@gmail.com'], 
+            EMAIL_HOST_USER, 
+            [EMAIL_HOST_USER, recepient], 
             fail_silently = False
         )
         if form.is_valid():
