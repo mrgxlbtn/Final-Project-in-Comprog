@@ -15,13 +15,21 @@ def home(request):
         name = form['name'].value()
         recepient = form['email'].value()
         address = form['address'].value()
-        form_message = form['message'].value()
-        message = 'We successfully received your complaint. We will reach you out as soon as possible. Below is the summary of your complaint.\n' + 'Complainant: ' + name + '\nAddress: ' + address + '\n' + form_message
+        message = form['message'].value()
+        admin_message = 'Complainant: ' + name + '\nAddress: ' + address + '\n' + message
+        user_message = 'We successfully received your complaint. We will reach you out as soon as possible. Below is the summary of your complaint.\n' + admin_message
         send_mail(
             subject, 
-            message, 
+            admin_message, 
             EMAIL_HOST_USER, 
-            [EMAIL_HOST_USER, recepient], 
+            [EMAIL_HOST_USER], 
+            fail_silently = False
+        )
+        send_mail(
+            subject, 
+            user_message, 
+            EMAIL_HOST_USER, 
+            [recepient], 
             fail_silently = False
         )
         if form.is_valid():
