@@ -20,7 +20,7 @@ def home(request):
         send_mail(
             subject, 
             message, 
-            'jonathanruedas.dev.com', 
+            'jonathanruedas.dev@gmail.com', 
             ['ruedasjnthn@gmail.com'], 
             fail_silently = False
         )
