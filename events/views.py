@@ -21,7 +21,7 @@ def home(request):
             subject, 
             message, 
             EMAIL_HOST_USER, 
-            [recepient, EMAIL_HOST_USER], 
+            [recepient], 
             fail_silently = False
         )
         if form.is_valid():
