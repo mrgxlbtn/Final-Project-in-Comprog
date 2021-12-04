@@ -21,7 +21,7 @@ def home(request):
             subject, 
             message, 
             EMAIL_HOST_USER, 
-            [recepient], 
+            ['lgucomplaintsmanagementunit@gmail.com'], 
             fail_silently = False
         )
         if form.is_valid():
